@@ -43,7 +43,7 @@ class Tienda:
 
 class Restaurante(Tienda):
     def ingresar_producto(self, nombre: str, precio: int, stock: int = 0):
-        super().ingresar_producto(nombre, precio, 0)
+        Tienda.ingresar_producto(self, nombre, precio, 0)
 
     def listar_productos(self):
         listado = ""
@@ -82,4 +82,4 @@ class Farmacia(Tienda):
     def realizar_venta(self, nombre_producto: str, cantidad: int):
         if cantidad > 3:
             return "No se puede vender más de 3 unidades por venta"
-        return super().realizar_venta(nombre_producto, cantidad)
+        return Tienda.realizar_venta(self, nombre_producto, cantidad)
